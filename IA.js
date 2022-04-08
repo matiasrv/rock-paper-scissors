@@ -22,13 +22,14 @@ function playRound(){
     
     let computerSelection = computerPlay();
     console.log("computer: " + computerSelection)
-    
+
     let result;
     let win = youWin;
     let lose = youLose;
 
     if (playerSelection == computerSelection){
-        return result = "It's a tie"
+        console.log("it's a tie");
+        return result = "tie";
     }
     switch(playerSelection){
         case "rock":
@@ -59,10 +60,33 @@ function playRound(){
     return result;
 }
 function youWin(playerSelection, computerSelection){
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+    console.log(`${playerSelection} beats ${computerSelection}`);
+    return `won`;
 }
 
 function youLose(playerSelection, computerSelection){
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    console.log(`${computerSelection} beats ${playerSelection}`);
+    return `lost`;
 }
-console.log(playRound());
+
+function game(){
+    let wins = 0, loses = 0, ties = 0;
+    let round;
+    for (let i = 0; i < 5; i++){
+        round = playRound();
+        if(round == "won"){
+            wins++;
+            console.log("round win");
+            continue;
+        }
+        else if (round == "lost"){
+            loses++;
+            console.log("round lost");
+            continue;
+        }
+        ties++;
+    }
+    console.log(`final result, ${wins} wins, ${loses} loses and ${ties} ties`);
+}
+
+game();
