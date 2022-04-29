@@ -14,11 +14,8 @@ function computerPlay(){
     }
     return choice;
 }
-function playRound(){
-    let playerSelection;
-    do {
-        playerSelection = prompt("Choice between 'rock' 'paper' or 'scissors'").toLowerCase();
-    } while(playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors")
+function playRound(selection){
+    let playerSelection = selection.toLowerCase();
     
     let computerSelection = computerPlay();
     console.log("computer: " + computerSelection)
@@ -60,33 +57,39 @@ function playRound(){
     return result;
 }
 function youWin(playerSelection, computerSelection){
-    console.log(`${playerSelection} beats ${computerSelection}`);
+    console.log(`${playerSelection} beats ${computerSelection}, YOU WIN`);
     return `won`;
 }
 
 function youLose(playerSelection, computerSelection){
-    console.log(`${computerSelection} beats ${playerSelection}`);
+    console.log(`${computerSelection} beats ${playerSelection}, YOU LOSE`);
     return `lost`;
 }
 
 function game(){
     let wins = 0, loses = 0, ties = 0;
     let round;
-    for (let i = 0; i < 5; i++){
-        round = playRound();
-        if(round == "won"){
-            wins++;
-            console.log("round win");
-            continue;
-        }
-        else if (round == "lost"){
-            loses++;
-            console.log("round lost");
-            continue;
-        }
-        ties++;
-    }
-    console.log(`final result, ${wins} wins, ${loses} loses and ${ties} ties`);
+    // for (let i = 0; i < 5; i++){
+    //     round = playRound();
+    //     if(round == "won"){
+    //         wins++;
+    //         console.log("round win");
+    //         continue;
+    //     }
+    //     else if (round == "lost"){
+    //         loses++;
+    //         console.log("round lost");
+    //         continue;
+    //     }
+    //     ties++;
+    // }
+    // console.log(`final result, ${wins} wins, ${loses} loses and ${ties} ties`);
+
 }
 
-game();
+// game();
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {playRound(e.target.textContent)});
+});
