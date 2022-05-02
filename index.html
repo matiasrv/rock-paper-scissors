@@ -5,16 +5,20 @@
     <title>Rock Paper Scissors</title>
     <script src="IA.js" defer></script>
     <style>
-        body{
+        body{text-align: center; background-color: grey;}
+        .container{
             display:flex;
-            justify-content: space-around;
-        }
-        button{scale: 2; margin-top: 50px;}
+            justify-content: space-evenly;
+        }.result{font-size: 24px;}  button{font-size: 24px; margin: 20px; padding: 10px;}
     </style>
 </head>
 <body>
-    <button>rock</button>
-    <button>paper</button>
-    <button>scissors</button>
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+        <button>rock</button>
+        <button>paper</button>
+        <button>scissors</button>
+    </div>
+    <div class="result"></div>
 </body>
 </html>
